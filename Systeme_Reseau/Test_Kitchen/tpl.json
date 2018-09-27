@@ -1,0 +1,45 @@
+{
+  "description": "Une description optionnelle",
+  "min_packer_version": "1.2.2",
+  "variables": {
+    "image_type": "client",
+    "script_name": "bootstrap.sh",
+    "vagrant_home": "{{env `HOME`}}/.vagrant.d",
+    "src_path": "{{env `HOME`}}/.vagrant.d/boxes/bento-VAGRANTSLASH-debian-9/201803.24.0/virtualbox/"
+  },
+  "builders": [
+    {
+      "type": "docker",
+      "image": "debian",
+      "commit": true
+    },
+    {
+      "type": "virtualbox-ovf",
+      "source_path": "{{user `src_path`}}/box.ovf",
+      "ssh_username": "vagrant",
+      "ssh_private_key_file": "{{user `vagrant_home`}}/insecure_private_key",
+      "shutdown_command": "echo 'packer' | sudo -S shutdown -P now",
+      "format": "ova",
+      "vm_name": "mariadb-{{user `image_type`}}"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "script": "{{user `script_name`}}"
+    }
+  ],
+  "post-processors": [
+    {
+      "type": "docker-tag",
+      "only": ["docker"],
+      "repository": "toto/mariadb",
+      "tag": "{{ user `image_type`}}"
+    },
+    {
+      "type": "vagrant",
+      "except": ["docker"],
+      "vagrantfile_template": "{{user `src_path`}}/Vagrantfile"
+    }
+  ]
+}

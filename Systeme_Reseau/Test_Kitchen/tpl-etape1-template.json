@@ -1,0 +1,8 @@
+{
+  "description": "Une description optionnelle",
+  "min_packer_version": "1.2.2",
+  "variables": {},
+  "builders": [],
+  "provisioners": [],
+  "post-processors": []
+}

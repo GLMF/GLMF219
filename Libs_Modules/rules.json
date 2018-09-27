@@ -1,0 +1,25 @@
+{
+    "rules" : [
+                 {
+                     "ruleName" : "salutations",
+                     "patterns" : ["Salut", "Bonjour", "Hello", "Coucou"],
+                     "responses" : ["Salut à toi", "À vos ordres !", "Bien le bonjour"]
+                 },
+                 {
+                     "ruleName" : "quitter",
+                     "patterns" : ["À la prochaine", "Ciao", "Au revoir"],
+                     "responses" : ["Au revoir", "Hasta la vista", "Je vous salue bien bas"]
+                 },
+                 {
+                     "ruleName" : "heure",
+                     "patterns" : ["Quelle heure est-il ?", "Peux-tu me donner l'heure ?", "Il est quelle heure ?", "Donne moi l'heure"],
+                     "responses" : ["Il est {hour}h{mn}mn", "{hour}h{mn}mn d'après mon horloge", "{hour}h{mn}mn et {sec}s pour etre très précis"]
+                 },
+                 {
+                     "ruleName" : "blague",
+                     "patterns" : ["ahah", "hehe", "ohoh", "hihi"],
+                     "responses" : ["ahahahahah !", "hehehehehehe !", "ohohohohohoh !"]
+                 }
+             ],
+    "unknown" : ["Pardon ?", "Je ne comprends pas...", "Pourriez-vous reformuler votre phrase ?", "Plait-il ?", "Quoi ???", "Hein ?"]
+}
