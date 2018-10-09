@@ -1,4 +1,4 @@
-# GNU/Linux Magazine n°219 - Novembre 2018
+# GNU/Linux Magazine n°219 - Octobre 2018
 
 # Codes sources
 Vous trouverez dans ce dépôt les différents codes sources des articles publiés dans le magazine.
